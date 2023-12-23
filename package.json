@@ -1,0 +1,15 @@
+{
+    "name": "canny-edge-image-processor",
+    "version": "0.0.1",
+    "private": true,
+    "scripts": {
+        "install:client": "cd services/client && npm install",
+        "install:server": "cd services/server && poetry install",
+        "install:all": "npm run install:client && npm run install:server",
+        "build:client": "cd services/client && npm run build",
+        "start:server": "cd services/server && poetry run dev",
+        "start:client": "cd services/client && npm start",
+        "start": "npm run build:client && npm run start:server",
+        "dev": "npm run install:all && npm start"
+    }
+}

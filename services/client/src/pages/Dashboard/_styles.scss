@@ -1,0 +1,49 @@
+.dashboard {
+    @include rules('m-flex', 'm-height-100', 'm-width-100');
+    min-width: fit-content;
+
+    .photo-preview {
+        max-width: 50vw;
+        margin: 1rem;
+    }
+  
+    .typewriter {
+        width: max-content;
+        position: relative;
+        $typewriterSpeed: 2s;
+        $typewriterCharacters: 25;
+    
+        &::before,
+        &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+        }
+    
+        &::before {
+            @include rules('m-bg-lgrey-3');
+            animation: typewriter $typewriterSpeed steps($typewriterCharacters) 1s forwards;
+        }
+    
+        &::after {
+            @include rules('m-bg-night-1');
+            width: .125em;
+            animation: typewriter $typewriterSpeed steps($typewriterCharacters) 1s forwards, blink 750ms steps($typewriterCharacters) infinite;
+        }
+
+        @keyframes typewriter {
+            to {
+                left: 100%;
+            }
+        }
+        
+        @keyframes blink {
+            to {
+                background: transparent;
+            }
+        }
+    }
+}

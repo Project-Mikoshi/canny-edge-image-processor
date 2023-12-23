@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "server"
+version = "0.1.0"
+description = ""
+authors = [
+    "Joseph Malovic <jmalovic@surveymonkey.com>",
+    "Anthony Y. Zhu <anthonyzhu@cmail.carleton.ca>"
+]
+readme = "README.md"
+
+packages = [
+  { include = "app" }
+]
+
+[tool.poetry.scripts]
+dev = "app.main:dev"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.92.0"
+uvicorn = "^0.20.0"
+Jinja2 = "^3.1.2"
+python-decouple = "^3.8"
+python-socketio = "^5.8.0"
+opencv-python = "^4.7.0.72"
+numpy = "^1.24.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
