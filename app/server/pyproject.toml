@@ -9,11 +9,11 @@ authors = [
 readme = "README.md"
 
 packages = [
-  { include = "app" }
+  { include = "src" }
 ]
 
 [tool.poetry.scripts]
-dev = "app.main:dev"
+dev = "src.main:dev"
 
 [tool.poetry.dependencies]
 python = "^3.11"

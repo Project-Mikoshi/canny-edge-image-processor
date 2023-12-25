@@ -1,5 +1,5 @@
 import socketio
-from ..config import STATIC_FILE_DIR_PATH, STATIC_FILE_TEMPLATE_PATH
+from src.config import STATIC_FILE_DIR_PATH, STATIC_FILE_TEMPLATE_PATH
 
 socket_io = socketio.AsyncServer(
     async_mode="asgi"

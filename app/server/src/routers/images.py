@@ -3,8 +3,8 @@ from fastapi import APIRouter, Request
 from fastapi.responses import JSONResponse
 import cv2 as cv
 import numpy as np
-from app.services.socket import socket_io
-from app.services.image_process_scheduler import ImageProcessScheduler
+from src.services.socket import socket_io
+from src.services.image_process_scheduler import ImageProcessScheduler
 
 router = APIRouter()
 

@@ -33,7 +33,7 @@ export default function Dashboard() {
 
             notifyUser({
                 type: 'success',
-                message: `Successfully established connection with server - id: ${socket.id}`
+                message: 'Successfully established connection with server'
             })
         })
 

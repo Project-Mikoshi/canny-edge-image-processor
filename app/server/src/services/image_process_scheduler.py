@@ -2,8 +2,8 @@ import cv2 as cv
 import asyncio
 import threading
 from typing import Awaitable, Dict, Callable, List
-from .image_processor import ImageProcessor
-from .decorator import Singleton
+from src.services.image_processor import ImageProcessor
+from src.services.decorator import Singleton
 
 @Singleton
 class ImageProcessScheduler:
