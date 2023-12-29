@@ -4,9 +4,9 @@
 name: Deployments
 
 on:
-  push:
-    branches:
-      - main
+    push:
+        branches:
+            - main
 
 #------------------------------------------------------------------------------------
 # Define application permissions & version
@@ -21,23 +21,33 @@ jobs:
   #----------------------------------------------------------------------------------
   # build server and apps
   #----------------------------------------------------------------------------------
-  build-client:
-    name: Build and test client app
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: app/client
-    steps:
-      - uses: actions/checkout@v3
-      #------------------------------------------------------------------------------
-      # install
-      #------------------------------------------------------------------------------
-      - name: Install dependencies
-        run: |
-          npm install
+    build:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v3
 
-      #------------------------------------------------------------------------------
-      # build
-      #------------------------------------------------------------------------------
-      - name: Build packages
-        run:  npm run build
+            - name: Set up python
+              id: setup-python
+              uses: actions/setup-python@v4
+              with:
+                python-version: '3.11'
+
+            #------------------------------------------------------------------------------
+            # install
+            #------------------------------------------------------------------------------
+            - name: Install Poetry
+              uses: snok/install-poetry@v1
+              with:
+                virtualenvs-create: true
+                virtualenvs-in-project: true
+                installer-parallel: true
+
+            - name: Install dependencies
+              run: |
+                make install
+
+            #------------------------------------------------------------------------------
+            # build
+            #------------------------------------------------------------------------------
+            - name: Build packages
+              run:  make build

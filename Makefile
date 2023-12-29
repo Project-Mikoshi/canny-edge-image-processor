@@ -1,4 +1,4 @@
-.PHONY: install-client install-server install build-client start-server start-client run
+.PHONY: install-client install-server install build start-server start-client run
 
 SRC_DIR = app
 
@@ -16,7 +16,7 @@ install-server:
 install: install-client install-server
 
 # ======== build =================
-build-client:
+build:
 	cd $(CLIENT_DIR) && npm run build
 
 # ======== development ===========
